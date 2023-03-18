@@ -3,8 +3,8 @@ const tutorialControllers = require(path.join(__dirname, "../controllers/tutoria
 var jwtAuth = require(path.join("../middlewares/authJWT"));
 
 module.exports = app => {
-    app.post("/api/tutorials", tutorialControllers.create);
-    app.get("/api/tutorials", jwtAuth, tutorialControllers.findAll);
+    app.post("/api/tutorials", jwtAuth, tutorialControllers.create);
+    app.get("/api/tutorials", tutorialControllers.findAll);
     app.get("/api/tutorials/:id", tutorialControllers.findOne);
     app.put("/api/tutorials/:id", tutorialControllers.update);
     app.delete("/app/tutorials/:id", tutorialControllers.deletedOne);
